@@ -1,0 +1,69 @@
+{
+ "rows": [
+  {
+   "day": "2026-11-21",
+   "slot": "post1",
+   "style": "reel",
+   "likes": 1,
+   "comments": 0
+  },
+  {
+   "day": "2026-11-21",
+   "slot": "post2",
+   "style": "carousel",
+   "likes": 0,
+   "comments": 0
+  },
+  {
+   "day": "2026-11-21",
+   "slot": "post3",
+   "style": "old",
+   "likes": 0,
+   "comments": 0
+  },
+  {
+   "day": "2026-11-21",
+   "slot": "post4",
+   "style": "old",
+   "likes": 1,
+   "comments": 0
+  },
+  {
+   "day": "2026-11-21",
+   "slot": "post5",
+   "style": "old",
+   "likes": 1,
+   "comments": 0
+  },
+  {
+   "day": "2026-11-21",
+   "slot": "post6",
+   "style": "old",
+   "likes": 1,
+   "comments": 0
+  }
+ ],
+ "avg": {
+  "reel": {
+   "likes": 1.0,
+   "comments": 0.0,
+   "saved": 0.0,
+   "shares": 0.0,
+   "reach": 0.0
+  },
+  "carousel": {
+   "likes": 0.0,
+   "comments": 0.0,
+   "saved": 0.0,
+   "shares": 0.0,
+   "reach": 0.0
+  },
+  "old": {
+   "likes": 0.8,
+   "comments": 0.0,
+   "saved": 0.0,
+   "shares": 0.0,
+   "reach": 0.0
+  }
+ }
+}
