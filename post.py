@@ -16,7 +16,7 @@ API = "https://graph.facebook.com/v23.0"
 IG_ID = os.environ.get("IG_ID", "17841458801850453")  # thewayout042026
 TOKEN = os.environ["IG_TOKEN"]
 REPO = os.environ.get("GITHUB_REPOSITORY", "DopaMi9e/wayout-insta")
-SLOTS = {2: 1, 7: 2, 14: 3}  # UTC hour -> post number (8:00, 13:00, 20:00 IST)
+SLOTS = {2: 1, 8: 2, 16: 3}  # UTC hour -> post number (8:00, 14:00, 22:00 IST)
 
 
 def call(method, path, **params):
@@ -50,6 +50,10 @@ def main():
     if mp4.exists():  # reel (cover = the post picture)
         cid = call("POST", f"{IG_ID}/media", media_type="REELS", video_url=base + mp4.as_posix(), caption=caption,
                    cover_url=base + jpg.as_posix(), share_to_feed="true")["id"]
+    elif slides := sorted(jpg.parent.glob(f"{jpg.stem}_*.jpg")):  # carousel: post2.jpg + post2_2.jpg ...
+        kids = [call("POST", f"{IG_ID}/media", image_url=base + j.as_posix(), is_carousel_item="true")["id"]
+                for j in [jpg, *slides]]
+        cid = call("POST", f"{IG_ID}/media", media_type="CAROUSEL", children=",".join(kids), caption=caption)["id"]
     else:
         cid = call("POST", f"{IG_ID}/media", image_url=base + jpg.as_posix(), caption=caption)["id"]
     for _ in range(60):  # videos take a minute or two to process
